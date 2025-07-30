@@ -59,7 +59,7 @@ const Header = ({ cartCount = 0, onCartUpdate }) => {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden sm:flex items-center space-x-6">
             <a href="/" className="text-gray-300 hover:text-blue-400 transition-colors">
               Главная
             </a>
