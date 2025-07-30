@@ -66,7 +66,7 @@ const Header = ({ cartCount = 0, onCartUpdate }) => {
             <a href="/products" className="text-gray-300 hover:text-blue-400 transition-colors">
               Товары
             </a>
-              {user ? (
+              {user && user.username ? (
                 <div className="relative" ref={dropdownRef}>
                   <button onClick={() => setOpen(!open)} className="text-gray-300 hover:text-blue-400 transition-colors">Привет, {user.username}!</button>
                   {open && (
