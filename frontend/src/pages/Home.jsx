@@ -13,7 +13,7 @@ const Home = () => {
       id: 1,
       title: "iPhone 15 Pro Max",
       subtitle: "Титан. Настолько Pro.",
-      price: "от 134 990 ₽",
+      price: "от 799 990 ₸",
       image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&h=600&fit=crop",
       gradient: "from-purple-600 to-blue-600"
     },
@@ -21,7 +21,7 @@ const Home = () => {
       id: 2,
       title: "Samsung Galaxy S24 Ultra",
       subtitle: "Искусственный интеллект нового поколения",
-      price: "от 119 990 ₽",
+      price: "от 299 990 ₸",
       image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800&h=600&fit=crop",
       gradient: "from-blue-600 to-cyan-600"
     },
@@ -29,7 +29,7 @@ const Home = () => {
       id: 3,
       title: "Google Pixel 8 Pro",
       subtitle: "Магия ИИ в каждом кадре",
-      price: "от 89 990 ₽",
+      price: "от 539 990 ₸",
       image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=600&fit=crop",
       gradient: "from-green-600 to-teal-600"
     }
@@ -40,8 +40,8 @@ const Home = () => {
     {
       id: 1,
       name: "iPhone 15 Pro",
-      price: "129 990 ₽",
-      originalPrice: "139 990 ₽",
+      price: "799 990 ₸",
+      originalPrice: "799 990 ₸",
       image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
       rating: 4.9,
       reviews: 1247,
@@ -50,8 +50,8 @@ const Home = () => {
     {
       id: 2,
       name: "Samsung Galaxy Buds Pro",
-      price: "14 990 ₽",
-      originalPrice: "19 990 ₽",
+      price: "70 000 ₸",
+      originalPrice: "120 000₸",
       image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop",
       rating: 4.7,
       reviews: 856,
@@ -60,8 +60,8 @@ const Home = () => {
     {
       id: 3,
       name: "Apple Watch Series 9",
-      price: "42 990 ₽",
-      originalPrice: "49 990 ₽",
+      price: "150 000 ₸",
+      originalPrice: "400 000 ₸",
       image: "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop",
       rating: 4.8,
       reviews: 632,
@@ -70,8 +70,8 @@ const Home = () => {
     {
       id: 4,
       name: "MacBook Air M3",
-      price: "134 990 ₽",
-      originalPrice: "149 990 ₽",
+      price: "800 000 ₸",
+      originalPrice: "820 000 ₸",
       image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
       rating: 4.9,
       reviews: 423,
