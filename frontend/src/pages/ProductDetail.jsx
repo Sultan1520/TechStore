@@ -19,7 +19,7 @@ const ProductDetail = () => {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.post(
-        'https://techstore-psov.onrender.com//api/cart/',
+        'https://techstore-psov.onrender.com/api/cart/',
         {
           product_id: product.id,
           quantity: 1,
@@ -40,7 +40,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    axios.get(`https://techstore-psov.onrender.com//api/products/${id}/`)
+    axios.get(`https://techstore-psov.onrender.com/api/products/${id}/`)
       .then(res => setProduct(res.data))
       .catch(err => console.error(err));
   }, [id]);

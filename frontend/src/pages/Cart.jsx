@@ -11,7 +11,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get('https://techstore-psov.onrender.com//api/cart/', {
+        const res = await axios.get('https://techstore-psov.onrender.com/api/cart/', {
           headers: {
             Authorization: `Token ${token}`
           }
@@ -29,7 +29,7 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     try {
-      await axios.post('https://techstore-psov.onrender.com//checkout/', {}, {
+      await axios.post('https://techstore-psov.onrender.com/checkout/', {}, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -59,7 +59,7 @@ const Cart = () => {
   const removeItem = async (id) => {
     setCartItems(items => items.filter(item => item.id !== id));
     try {
-      await axios.delete(`https://techstore-psov.onrender.com//api/cart/${id}/`, {
+      await axios.delete(`https://techstore-psov.onrender.com/api/cart/${id}/`, {
         headers: { Authorization: `Token ${token}` },
       });
       // Обновляем локальный стейт, убирая удалённый элемент
