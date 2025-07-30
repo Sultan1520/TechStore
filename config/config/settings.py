@@ -50,8 +50,8 @@ INSTALLED_APPS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-DEBUG = False
-ALLOWED_HOSTS = ['https://techstore-psov.onrender.com']
+# DEBUG = False
+# ALLOWED_HOSTS = ['https://techstore-psov.onrender.com']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
