@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../components/Modal';
+import CheckoutForm from '../components/CheckoutForm';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get('https://techstore-psov.onrender.com/api/cart/', {
+        const res = await axios.get('http://localhost:8000/api/cart/', {
           headers: {
             Authorization: `Token ${token}`
           }
@@ -27,15 +30,23 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
-  const handleCheckout = async () => {
+  const handleCheckout = async ({address, phone_number}) => {
     try {
-      await axios.post('https://techstore-psov.onrender.com/checkout/', {}, {
+      await axios.post('http://localhost:8000/api/checkout/', {
+        address,
+        phone_number,
+        products: cartItems.map(item => ({
+        product_id: item.id,   
+        quantity: item.quantity,
+      })),
+      }, {
         headers: {
           Authorization: `Token ${token}`,
         },
       });
 
       localStorage.removeItem('cart'); 
+      setModalOpen(false);
       
       navigate('/orders');
     } catch (error) {
@@ -59,7 +70,7 @@ const Cart = () => {
   const removeItem = async (id) => {
     setCartItems(items => items.filter(item => item.id !== id));
     try {
-      await axios.delete(`https://techstore-psov.onrender.com/api/cart/${id}/`, {
+      await axios.delete(`http://localhost:8000/api/cart/${id}/`, {
         headers: { Authorization: `Token ${token}` },
       });
       // Обновляем локальный стейт, убирая удалённый элемент
@@ -185,13 +196,12 @@ const Cart = () => {
                 </div>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 mb-4">
+              <button onClick={() => setModalOpen(true)} className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 mb-4">
                 Оформить заказ
               </button>
-
-              <button onClick={handleCheckout} className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-xl font-medium transition-colors duration-200">
-                Продолжить покупки
-              </button>
+              <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+                <CheckoutForm onSubmit={handleCheckout} />
+              </Modal>
 
               {/* Преимущества */}
               <div className="mt-6 space-y-3">

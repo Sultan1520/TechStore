@@ -12,8 +12,8 @@ const Products = () => {
 
   useEffect(() => {
     const url = selectedCategory
-      ? `https://techstore-psov.onrender.com/api/products/?category=${selectedCategory}`
-      : "https://techstore-psov.onrender.com/api/products/";
+      ? `http://localhost:8000/api/products/?category=${selectedCategory}`
+      : "http://localhost:8000/api/products/";
 
       fetch(url)
       .then(res => res.json())
@@ -22,7 +22,7 @@ const Products = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://techstore-psov.onrender.com/api/categories/")
+    fetch("http://localhost:8000/api/categories/")
       .then(res => res.json())
       .then(data => setCategories(data));
   }, []);

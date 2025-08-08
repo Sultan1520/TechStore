@@ -36,8 +36,8 @@ const Registration = () => {
   setMessage('');
 
   const url = isLogin
-    ? 'https://techstore-psov.onrender.com/api/accounts/login/'
-    : 'https://techstore-psov.onrender.com/api/accounts/register/';
+    ? 'http://localhost:8000/api/accounts/login/'
+    : 'http://localhost:8000/api/accounts/register/';
 
   // Подготовка данных
   const payload = {

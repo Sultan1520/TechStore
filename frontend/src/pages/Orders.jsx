@@ -15,7 +15,7 @@ const OrdersPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/orders/', {
+        const res = await axios.get('http://localhost:8000/api/orders/', {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -43,7 +43,7 @@ const OrdersPage = () => {
 
   const filteredOrders = orders.filter(order => {
     const matchesStatus = selectedStatus === 'all' || order.status === selectedStatus;
-    const matchesSearch = order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesSearch = order.id.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
                          order.products.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesStatus && matchesSearch;
   });
@@ -78,7 +78,7 @@ const OrdersPage = () => {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Дата заказа</p>
-                <p className="text-white font-semibold">{new Date(order.date).toLocaleDateString('ru-RU')}</p>
+                <p className="text-white font-semibold">{new Date(order.created_at).toLocaleDateString('ru-RU')}</p>
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Статус</p>
@@ -89,13 +89,13 @@ const OrdersPage = () => {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Общая сумма</p>
-                <p className="text-white font-bold text-lg">${order.total}</p>
+                <p className="text-white font-bold text-lg">{order.total_price}</p>
               </div>
             </div>
 
             {/* Товары */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Товары ({order.items})</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Товары ({order.total_quantity})</h3>
               <div className="space-y-3">
                 {order.products.map((product, index) => (
                   <div key={index} className="flex items-center gap-4 bg-gray-700/50 rounded-xl p-4">
@@ -109,8 +109,8 @@ const OrdersPage = () => {
                       <p className="text-gray-400 text-sm">Количество: {product.quantity}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-white font-semibold">${product.price * product.quantity}</p>
-                      <p className="text-gray-400 text-sm">${product.price} за шт.</p>
+                      <p className="text-white font-semibold">{new Intl.NumberFormat('ru-RU').format(product.price * product.quantity)} ₸</p>
+                      <p className="text-gray-400 text-sm">{new Intl.NumberFormat('ru-RU').format(product.price)} ₸ за шт.</p>
                     </div>
                   </div>
                 ))}
@@ -123,18 +123,8 @@ const OrdersPage = () => {
               <div className="bg-gray-700/50 rounded-xl p-4 space-y-3">
                 <div>
                   <p className="text-gray-400 text-sm">Адрес доставки</p>
-                  <p className="text-white">{order.shipping.address}</p>
+                  <p className="text-white">{order.address}</p>
                 </div>
-                <div>
-                  <p className="text-gray-400 text-sm">Способ доставки</p>
-                  <p className="text-white">{order.shipping.method}</p>
-                </div>
-                {order.shipping.tracking && (
-                  <div>
-                    <p className="text-gray-400 text-sm">Трек-номер</p>
-                    <p className="text-blue-400 font-mono">{order.shipping.tracking}</p>
-                  </div>
-                )}
               </div>
             </div>
 
@@ -225,16 +215,16 @@ const OrdersPage = () => {
                         <div>
                           <p className="text-gray-400">Дата заказа</p>
                           <p className="text-white font-medium">
-                            {new Date(order.date).toLocaleDateString('ru-RU')}
+                            {new Date(order.created_at).toLocaleDateString('ru-RU')}
                           </p>
                         </div>
                         <div>
                           <p className="text-gray-400">Товаров</p>
-                          <p className="text-white font-medium">{order.items} шт.</p>
+                          <p className="text-white font-medium">{order.total_quantity} шт.</p>
                         </div>
                         <div>
                           <p className="text-gray-400">Сумма</p>
-                          <p className="text-white font-bold text-lg">${order.total}</p>
+                          <p className="text-white font-bold text-lg">{order.total_price}</p>
                         </div>
                       </div>
                     </div>
