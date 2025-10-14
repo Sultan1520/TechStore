@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h^pi9+x)$fd6kez8m=fs7&&p^sky#i5npm4%6p$)50&((wtu)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.0.2.2', '127.0.0.1', 'localhost', 'flutter-shop-app-zsa7.vercel.app/', 'https://techstore-psov.onrender.com/']
 
 
 # Application definition
@@ -65,6 +65,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    'https://flutter-shop-app-zsa7.vercel.app',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'

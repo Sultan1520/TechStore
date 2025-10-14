@@ -60,7 +60,7 @@ class Rating(models.Model):
     stars = models.PositiveIntegerField("Оценка", choices=[(i, str(i)) for i in range(1, 6)])
 
     class Meta:
-        unique_together = ('product', 'user')  # 1 пользователь может 1 раз оценить
+        unique_together = ('product', 'user')
 
 class KeyFeature(models.Model):
     product = models.ForeignKey("Product", related_name="key_features", on_delete=models.CASCADE)
@@ -72,8 +72,8 @@ class KeyFeature(models.Model):
 
 class Specification(models.Model):
     product = models.ForeignKey("Product", related_name="specifications", on_delete=models.CASCADE)
-    name = models.CharField("Имя", max_length=100)   # Например, "Процессор"
-    value = models.CharField("Характиристика", max_length=255)  # Например, "Snapdragon 8 Gen 2"
+    name = models.CharField("Имя", max_length=100)
+    value = models.CharField("Характиристика", max_length=255)
 
     class Meta:
         verbose_name = "Характеристика"
