@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    'https://flutter-shop-app-zsa7.vercel.app',
+    'https://flutter-shop-app-2nf6.vercel.app',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
