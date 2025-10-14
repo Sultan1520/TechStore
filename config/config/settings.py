@@ -69,6 +69,8 @@ CORS_ALLOWED_ORIGINS = [
     'https://flutter-shop-app-2nf6.vercel.app',
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
