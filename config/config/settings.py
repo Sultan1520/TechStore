@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    'https://flutter-shop-app-2nf6.vercel.app',
+    'https://flutter-shop-app-rgwr.vercel.app',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
