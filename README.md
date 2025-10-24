@@ -1,4 +1,4 @@
-###Интернет-магазин (Django + React)
+**Интернет-магазин (Django + React)**
 
 Это pet-проект интернет-магазина, в котором используется Django REST Framework на стороне сервера и React на стороне клиента. Приложение поддерживает регистрацию и авторизацию через JWT, работу с товарами, корзиной и историей заказов. Интерфейс разработан с помощью Tailwind CSS, а база данных реализована на PostgreSQL. Проект развернут на Render (backend) и Vercel (frontend).
 
@@ -8,14 +8,14 @@
 • Frontend: React, React Router, Axios, Tailwind CSS
 • Deployment: Render (backend), Vercel (frontend)
 
-###Как запустить проект локально
+**Как запустить проект локально**
 
 Сначала необходимо клонировать репозиторий:
 
 git clone https://github.com/your-username/online-store.git
 cd online-store
 
-###Настройка и запуск backend (Django)
+**Настройка и запуск backend (Django)**
 
 Перейдите в папку config, создайте виртуальное окружение и установите зависимости:
 
